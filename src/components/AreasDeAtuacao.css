@@ -1,0 +1,54 @@
+.areasDeAtuacao {
+    width: 100%;
+    min-height: 200px;
+    padding: 80px 0;
+    background-color: #eee9e9;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    display: block;
+  }
+  
+  .areasDeAtuacao h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1c1b1b;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    margin: 0; 
+    margin-top: -50px;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .areas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    padding: 0 20px;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .areas-card {
+    width: 280px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .areas-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .areas-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+  }
