@@ -1,0 +1,67 @@
+.procedimentos {
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 0;
+  background-color: #ffffff;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  
+  
+}
+
+.procedimentos h2 {
+  font-size: 40px;
+  font-weight: 700;
+  
+  color: #050505;
+  margin: 0; 
+  margin-top: 50px;
+  animation: fadeInDown 1s ease-out;
+}
+
+.procedimentos2 {
+    
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px;      
+  text-align: left;     
+  display: flex;              
+  margin-top: 45px;
+}
+
+.procedimentos2 img {
+  width: 50%;                 
+  height: auto;               
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  margin-left: 30px;
+  border-radius: 20px;
+  
+  
+}
+
+.textogeral {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #222;
+  margin: 0;           
+  padding: 0;
+  
+  
+}
+
+.textogeral h5 {
+    
+  font-size: 28px;
+  margin: 0 0 10px 0;  
+  
+  
+}
+
+
+
+

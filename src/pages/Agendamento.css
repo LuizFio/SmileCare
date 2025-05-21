@@ -1,0 +1,556 @@
+.agendamento-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  background-color: #e4e1e1;
+  color: #333;
+}
+
+.agendamento-header {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.agendamento-container h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1c1b1b;
+  margin: 0 0 10px 0;
+  text-align: center;
+  animation: fadeInDown 1s ease-out;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+
+.agendamento-tabs {
+  display: flex;
+  gap: 20px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button.active {
+  color: white;
+  border-bottom: 2px solid rgb(0, 200, 255);
+}
+
+.agendamento-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: 380px 1fr 380px;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.calendario-section {
+  flex: 1;
+  max-width: 800px;
+}
+
+.calendario {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeInLeft 1s ease-out;
+  height: fit-content;
+}
+
+.calendario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendario-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1c1b1b;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: rgb(0, 200, 255);
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.3s ease;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.nav-button:hover {
+  color: rgb(0, 180, 230);
+  background-color: rgba(0, 200, 255, 0.1);
+}
+
+.nav-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: #999;
+}
+
+.nav-button.disabled:hover {
+  background-color: transparent;
+  color: #999;
+}
+
+.dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.dias-semana div {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  padding: 4px;
+}
+
+.dias-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.dia {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  color: #333;
+  background: #f5f5f5;
+  width: 35px;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.dia:hover:not(.empty) {
+  background-color: rgba(0, 200, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.dia.empty {
+  background: none;
+  cursor: default;
+  visibility: hidden;
+}
+
+.dia.selected {
+  background-color: rgb(0, 200, 255);
+  color: white;
+  transform: scale(1.1);
+}
+
+.dia.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #e0e0e0;
+}
+
+.dia.disabled:hover {
+  background-color: #e0e0e0;
+  transform: none;
+}
+
+.sessoes-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-out;
+}
+
+.sessoes-container h3 {
+  color: #1c1b1b;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.sessoes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.dentista-sessoes {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(0, 200, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dentista-sessoes:hover {
+  box-shadow: 0 4px 12px rgba(0, 200, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.dentista-sessoes h4 {
+  color: #1c1b1b;
+  margin-bottom: 20px;
+  font-size: 18px;
+  border-bottom: 2px solid rgba(0, 200, 255, 0.2);
+  padding-bottom: 10px;
+}
+
+.horarios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.horario-button {
+  background: #ffffff;
+  border: 2px solid rgb(0, 200, 255);
+  color: rgb(0, 200, 255);
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.horario-button:hover:not(.indisponivel) {
+  background: rgb(0, 200, 255);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.horario-button.selected {
+  background: rgb(0, 200, 255);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.horario-button.indisponivel {
+  background: #f5f5f5;
+  border-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.formulario-agendamento {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.formulario-agendamento h3 {
+  color: #1c1b1b;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #1c1b1b;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: rgb(0, 200, 255);
+  box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
+.consulta-info {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid rgba(0, 200, 255, 0.2);
+}
+
+.consulta-info p {
+  margin: 12px 0;
+  color: #666;
+  font-size: 16px;
+}
+
+.consulta-info strong {
+  color: #1c1b1b;
+  margin-right: 10px;
+}
+
+.agendar-button {
+  width: 100%;
+  padding: 15px;
+  background-color: rgb(0, 200, 255);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.agendar-button:hover {
+  background-color: rgb(0, 180, 230);
+  transform: translateY(-2px);
+}
+
+.dados-paciente-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.dados-paciente-container.hidden {
+  visibility: hidden;
+}
+
+.dados-paciente-container h3 {
+  color: #1c1b1b;
+  margin-bottom: 30px;
+  font-size: 24px;
+  border-bottom: 2px solid rgba(0, 200, 255, 0.2);
+  padding-bottom: 10px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1400px) {
+  .agendamento-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .dados-paciente-container {
+    grid-column: 1 / -1;
+    position: static;
+  }
+}
+
+@media (max-width: 992px) {
+  .agendamento-content {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+  
+  .sessoes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .agendamento-container {
+    padding: 100px 10px 40px;
+  }
+  
+  .agendamento-content {
+    padding: 0 5px;
+  }
+}
+
+.mensagem-sucesso {
+  background-color: rgb(0, 200, 255);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  animation: fadeInOut 3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 200, 255, 0.2);
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -20px); }
+  10% { opacity: 1; transform: translate(-50%, 0); }
+  90% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -20px); }
+}
+
+.historico-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.historico-container h3 {
+  color: #1c1b1b;
+  margin-bottom: 30px;
+  font-size: 24px;
+  border-bottom: 2px solid rgba(0, 200, 255, 0.2);
+  padding-bottom: 10px;
+}
+
+.historico-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.consulta-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(0, 200, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.consulta-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 200, 255, 0.1);
+}
+
+.consulta-card h4 {
+  color: #1c1b1b;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.consulta-card p {
+  margin: 8px 0;
+  color: #666;
+}
+
+.consulta-card strong {
+  color: #1c1b1b;
+  margin-right: 8px;
+}
+
+.usuario-info {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 200, 255, 0.2);
+}
+
+.usuario-info p {
+  margin: 8px 0;
+  color: #666;
+}
+
+.usuario-info strong {
+  color: #1c1b1b;
+  margin-right: 8px;
+}
+
+.form-group input[type="tel"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.form-group input[type="tel"]:focus,
+.form-group input[type="email"]:focus {
+  outline: none;
+  border-color: rgb(0, 200, 255);
+  box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.1);
+} 

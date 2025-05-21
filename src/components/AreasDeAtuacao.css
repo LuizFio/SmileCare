@@ -1,0 +1,134 @@
+.areasDeAtuacao {
+    width: 100%;
+    min-height: 200px;
+    padding: 80px 0;
+    background-color: #f7f7f7;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .titulo-areas {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 50px;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .titulo-areas span {
+    color: #00b4f0;
+  }
+  
+  .areasDeAtuacao h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    color: #1c1b1b;
+    margin: 0; 
+    margin-top: -50px;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .areas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    padding: 0 20px;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .areas-card {
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+  
+  .areas-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  }
+  
+  .areas-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .areas-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .areas-card p {
+    margin: 20px 0;
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+    position: relative;
+    padding: 0 15px;
+  }
+  
+  .areas-card p::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #333;
+    transition: width 0.3s ease;
+  }
+  
+  .areas-card:hover p::after {
+    width: 50px;
+  }
+  
+  @media (max-width: 1200px) {
+    .areas-container {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .areas-card img {
+      height: 320px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .areas-container {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+    
+    .areas-card img {
+      height: 280px;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
