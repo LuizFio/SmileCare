@@ -1,0 +1,152 @@
+.allbio {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 140px;
+  padding: 150px 60px 60px; /* Aumenta o espaço no topo */
+  background-color: #f5f5f5;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.bio-image {
+  width: 400px;
+  height: auto;
+  border-radius: 30px;
+  object-fit: cover;
+  padding-top: 20px;
+}
+
+.bio-text {
+  max-width: 600px;
+  padding-top: 40px;
+  margin-top: 20px;
+}
+
+.bio-text h1 {
+  font-size: 43px;
+  margin-bottom: 20px;
+  color: #222;
+
+   animation: fadeInDown 1s ease-out;
+}
+
+.bio-text p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #444;
+  animation: fadeInUp 1s ease-out;
+  margin-top: 15px;
+}
+
+.bio-text p span{
+    color: #848484;
+}
+
+.bio-image-joao{
+    width: 350px;
+    border-radius: 30px;
+}
+.bio-text-joao{
+    margin-top: 20px;
+}
+
+.bio-text-joao h1{
+    font-size: 43px;
+    animation: fadeInDown 1s ease-out;
+}
+.bio-text-joao p{
+    animation: fadeInUp 1s ease-out;
+    margin-top: 15px;
+}
+
+.bio-text-joao p span{
+    color: #848484;
+}
+
+.bio-image-ana{
+    width: 600px;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    border-radius: 30px;
+}
+
+.bio-text-ana{
+    padding-top: 140px;
+}
+
+.bio-text-ana p{
+    animation: fadeInUp 1s ease-out;
+    margin-top: 15px;
+}
+
+.bio-text-ana h1{
+    font-size: 43px;
+     animation: fadeInDown 1s ease-out;
+}
+
+.bio-text-ana p span{
+    color: #848484;
+}
+
+.bio-image-carlos{
+    width: 700px;
+    border-radius: 30px;
+    margin-top: 40px;
+}
+
+.bio-text-carlos{
+    margin-top: 50px;
+}
+
+.bio-text-carlos p{
+    animation: fadeInUp 1s ease-out;
+    margin-top: 15px;
+}
+
+.bio-text-carlos p span{
+    color: #848484;
+}
+
+.bio-text-carlos h1{
+    font-size: 43px;
+     animation: fadeInDown 1s ease-out;
+}
+
+.bio-image-paula{
+    width: 700px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+}
+.bio-image-luana{
+    width: 400px;
+    border-radius: 30px;
+}
+
+.bio-text-luana p {
+  font-size: 16px;
+  margin-top: 15px;
+  color: #444;
+  animation: fadeInUp 1s ease-out;
+}
+
+.bio-text-luana h1{
+    margin-bottom: 10px;
+    font-size: 43px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.bio-text-luana{
+    padding-top: 150px;
+}
+
+.bio-text-luana p span{
+    color: #848484;
+}
+
+/* check-icon */
+.check-icon{
+    color: rgb(0, 200, 255) !important;
+    margin-right: 10px;
+    font-weight: bold;
+}

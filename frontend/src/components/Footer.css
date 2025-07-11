@@ -1,0 +1,85 @@
+.footer {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #f9f9fa;
+  border-top: 1px solid #dfdfdf;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clinic-info {
+  text-align: left;
+  flex: 1;
+}
+
+.clinic-info p {
+  margin: 2px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.footer-logo {
+  padding: 0 30px;
+}
+
+.logo-smilecare {
+  width: 160px;
+  height: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.logo-smilecare:hover {
+  opacity: 1;
+}
+
+.credits {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #999;
+  font-size: 14px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.logo-forca-tatica {
+  width: 70px;
+  height: auto;
+  margin: 0;
+  transition: transform 0.3s ease;
+}
+
+.logo-forca-tatica:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .clinic-info {
+    text-align: center;
+  }
+
+  .footer-logo {
+    padding: 10px 0;
+  }
+
+  .logo-smilecare {
+    width: 140px;
+  }
+
+  .credits {
+    margin-top: 5px;
+    justify-content: center;
+  }
+} 

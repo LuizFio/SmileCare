@@ -1,0 +1,614 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Um título de API",
+    "description": "Descrição da API"
+  },
+  "host": "localhost:3001",
+  "basePath": "/",
+  "schemes": ["http", "https"],
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": {
+    "Bearer": []
+  },
+  "Bearer": [],
+  "paths": {
+    "/auth/paciente": {
+      "post": {
+        "tags": ["AUTHORIZATION"],
+        "summary": "Autoriza e gera token",
+        "description": "Devolve um token válido",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "auth/paciente",
+            "description": "Objeto que descreve um autorização para Paciente",
+            "schema": {
+              "type": "object",
+              "required": ["senha", "email"],
+              "properties": {
+                "email": { "type": "string", "example": "ana@ana.com" },
+                "senha": { "type": "string", "example": "12345" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação bem sucedida"
+          },
+          "400": {
+            "description": "Operação inválida"
+          }
+        }
+      }
+    },
+    "/auth/profissional": {
+      "post": {
+        "tags": ["AUTHORIZATION"],
+        "summary": "Autoriza e gera token",
+        "description": "Devolve um token válido",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "auth/profissional",
+            "description": "Objeto que descreve um autorização para Profissional",
+            "schema": {
+              "type": "object",
+              "required": ["senha", "email", "cro"],
+              "properties": {
+                "email": { "type": "string", "example": "drjoao@clinica.com" },
+                "cro": { "type": "string", "example": "56789-SP" },
+                "senha": { "type": "string", "example": "12345" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação bem sucedida"
+          },
+          "400": {
+            "description": "Operação inválida"
+          }
+        }
+      }
+    },
+    "/agendamentos": {
+      "get": {
+        "tags": ["AGENDAMENTOS"],
+        "summary": "Retorna agendamentos",
+        "description": "Retorna todos agendamentos existentes",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida"
+          }
+        }
+      },
+      "post": {
+        "tags": ["AGENDAMENTOS"],
+        "summary": "Adiciona agendamento",
+        "description": "Adiciona uma agendamento",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "agendamento",
+            "description": "Objeto que descreve um agendamento",
+            "schema": {
+              "type": "object",
+              "required": [
+                "data",
+                "horario",
+                "idPaciente",
+                "idProcedimento",
+                "idProfissional"
+              ],
+              "properties": {
+                "data": {
+                  "type": "string",
+                  "example": "01/07/2025",
+                  "description": "Data do agendamento no formato brasileiro (dd/MM/yyyy)"
+                },
+                "horario": {
+                  "type": "string",
+                  "example": "15:30",
+                  "description": "Horário do agendamento no formato 24h (HH:mm)"
+                },
+                "idPaciente": {
+                  "type": "string",
+                  "example": "",
+                  "description": "ID do paciente previamente cadastrado"
+                },
+                "idProcedimento": {
+                  "type": "string",
+                  "example": "",
+                  "description": "ID do procedimento previamente cadastrado"
+                },
+                "idProfissional": {
+                  "type": "string",
+                  "example": "",
+                  "description": "ID do profissional previamente cadastrado"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": ["pendente", "confirmada", "concluída", "cancelada"],
+                  "example": "pendente",
+                  "description": "Status atual do agendamento. Será 'pendente' por padrão e poderá ser alterado apenas por um profissional."
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Inserção bem sucedida"
+          }
+        }
+      }
+    },
+    "/agendamentos/{id}": {
+      "put": {
+        "tags": ["AGENDAMENTOS"],
+        "summary": "Altera agendamento",
+        "description": "Altera um agendamento",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "ID do agendamento a ser alterada",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "agendamento",
+            "description": "Objeto que descreve um agendamento",
+            "schema": {
+              "type": "object",
+              "required": [
+                "data",
+                "horario",
+                "idPaciente",
+                "idProcedimento",
+                "idProfissional"
+              ],
+              "properties": {
+                "data": {
+                  "type": "string",
+                  "example": "01/07/2025",
+                  "description": "Data do agendamento no formato brasileiro (dd/MM/yyyy)"
+                },
+                "horario": {
+                  "type": "string",
+                  "example": "15:30",
+                  "description": "Horário do agendamento no formato 24h (HH:mm)"
+                },
+                "idPaciente": {
+                  "type": "string",
+                  "example": "",
+                  "description": "ID do paciente previamente cadastrado"
+                },
+                "idProcedimento": {
+                  "type": "string",
+                  "example": "",
+                  "description": "ID do procedimento previamente cadastrado"
+                },
+                "idProfissional": {
+                  "type": "string",
+                  "example": "",
+                  "description": "ID do profissional previamente cadastrado"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": ["pendente", "confirmada", "concluída", "cancelada"],
+                  "example": "pendente",
+                  "description": "Status atual do agendamento. Será 'pendente' por padrão e poderá ser alterado apenas por um profissional."
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Inserção bem sucedida"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["AGENDAMENTOS"],
+        "summary": "Remove agendamentos",
+        "description": "Remove um agendamento na lista de agedamentos",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "ID do agendamento a ser removido",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Remoção bem sucedida"
+          },
+          "400": {
+            "description": "AGENDAMENTO NÃO ENCONTRADO"
+          }
+        }
+      }
+    },
+
+    "/pacientes": {
+      "get": {
+        "tags": ["PACIENTES"],
+        "summary": "Retorna pacientes",
+        "description": "Retorna todos pacientes existentes",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida"
+          }
+        }
+      },
+      "post": {
+        "tags": ["PACIENTES"],
+        "summary": "Adiciona paciente",
+        "description": "Adiciona uma paciente",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "paciente",
+            "description": "Objeto que descreve um paciente",
+            "schema": {
+              "type": "object",
+              "required": ["nome", "email", "senha", "fone"],
+              "properties": {
+                "nome": { "type": "string", "example": "Ana" },
+                "senha": { "type": "string", "example": "12345" },
+                "email": { "type": "string", "example": "ana@ana.com" },
+                "fone": { "type": "string", "example": "(11) 9876-3455" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Inserção bem sucedida"
+          }
+        }
+      }
+    },
+    "/pacientes/{id}": {
+      "put": {
+        "tags": ["PACIENTES"],
+        "summary": "Altera paciente",
+        "description": "Altera um paciente",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "ID do paciente a ser alterada",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "paciente",
+            "description": "Objeto que descreve um paciente",
+            "schema": {
+              "type": "object",
+              "required": ["nome", "email", "senha", "fone"],
+              "properties": {
+                "nome": { "type": "string", "example": "Ana" },
+                "senha": { "type": "string", "example": "12345" },
+                "email": { "type": "string", "example": "ana@ana.com" },
+                "fone": { "type": "string", "example": "(11) 9876-3455" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Inserção bem sucedida"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["PACIENTES"],
+        "summary": "Remove paciente",
+        "description": "Remove um paciente na lista de pacientes",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "ID do paciente a ser removido",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Remoção bem sucedida"
+          },
+          "400": {
+            "description": "PACIENTE NÃO ENCONTRADO"
+          }
+        }
+      }
+    },
+    "/profissionais": {
+      "get": {
+        "tags": ["PROFISSIONAIS"],
+        "summary": "Retorna profissionais",
+        "description": "Retorna todos profissionais existentes",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida"
+          }
+        }
+      },
+      "post": {
+        "tags": ["PROFISSIONAIS"],
+        "summary": "Adiciona profissional",
+        "description": "Adiciona um profissional",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "profissional",
+            "description": "Objeto que descreve um profissional",
+            "schema": {
+              "type": "object",
+              "required": [
+                "nome",
+                "email",
+                "senha",
+                "fone",
+                "especialidade",
+                "descricao",
+                "cro"
+              ],
+              "properties": {
+                "nome": { "type": "string", "example": "Dr. João" },
+                "senha": { "type": "string", "example": "12345" },
+                "email": { "type": "string", "example": "drjoao@clinica.com" },
+                "fone": { "type": "number", "example": "(11) 9876-3455" },
+                "especialidade": {
+                  "type": "string",
+                  "example": "Endodontia"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Especialista em canais"
+                },
+                "cro": { "type": "string", "example": "56789-SP" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Inserção bem sucedida"
+          }
+        }
+      }
+    },
+    "/profissionais/{id}": {
+      "put": {
+        "tags": ["PROFISSIONAIS"],
+        "summary": "Altera profissional",
+        "description": "Altera um profissional",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "ID do profissional a ser alterada",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "profissional",
+            "description": "Objeto que descreve um profissional",
+            "schema": {
+              "type": "object",
+              "required": [
+                "nome",
+                "email",
+                "senha",
+                "fone",
+                "especialidade",
+                "descricao",
+                "cro"
+              ],
+              "properties": {
+                "nome": { "type": "string", "example": "Dr. João" },
+                "senha": { "type": "string", "example": "12345" },
+                "email": { "type": "string", "example": "drjoao@clinica.com" },
+                "fone": { "type": "number", "example": "(11) 9876-3455" },
+                "especialidade": {
+                  "type": "string",
+                  "example": "Endodontia"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Especialista em canais"
+                },
+                "cro": { "type": "string", "example": "56789-SP" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Inserção bem sucedida"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["PROFISSIONAIS"],
+        "summary": "Remove profissional",
+        "description": "Remove um profissional na lista de profissionais",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "ID do profissional a ser removido",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Remoção bem sucedida"
+          },
+          "400": {
+            "description": "PROFISSIONAL NÃO ENCONTRADO"
+          }
+        }
+      }
+    },
+    "/procedimentos": {
+      "get": {
+        "tags": ["PROCEDIMENTOS"],
+        "summary": "Retorna procedimentos",
+        "description": "Retorna todos procedimentos existentes",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Operação bem sucedida"
+          }
+        }
+      },
+      "post": {
+        "tags": ["PROCEDIMENTOS"],
+        "summary": "Adiciona procedimento",
+        "description": "Adiciona um procedimento",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "procedimento",
+            "description": "Objeto que descreve um procedimento",
+            "schema": {
+              "type": "object",
+              "required": ["nome", "descricao", "idProfissionais"],
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Cirurgia do dente do siso"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Remoção do dente do siso"
+                },
+                "idProfissionais": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": ""
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Inserção bem sucedida"
+          }
+        }
+      }
+    },
+    "/procedimentos/{id}": {
+      "put": {
+        "tags": ["PROCEDIMENTOS"],
+        "summary": "Altera procedimento",
+        "description": "Altera um procedimento",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "ID do procedimento a ser alterada",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "procedimento",
+            "description": "Objeto que descreve um procedimento",
+            "schema": {
+              "type": "object",
+              "required": ["nome", "descricao", "idProfissionais"],
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Cirurgia do dente do siso"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Remoção do dente do siso"
+                },
+                "idProfissionais": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": ""
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Inserção bem sucedida"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["PROCEDIMENTOS"],
+        "summary": "Remove procedimento",
+        "description": "Remove um procedimento na lista de procedimentos",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "ID do procedimento a ser removido",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação Remoção bem sucedida"
+          },
+          "400": {
+            "description": "PROCEDIMENTO NÃO ENCONTRADO"
+          }
+        }
+      }
+    }
+  }
+}

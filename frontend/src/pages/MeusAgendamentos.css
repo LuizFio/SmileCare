@@ -1,0 +1,444 @@
+:root {
+  --azul-principal: #4a90e2;
+  --azul-claro: #e3f2fd;
+  --verde-suave: #e8f5e9;
+  --cinza-fundo: #f6f8fa;
+  --cinza-card: #f8f9fa;
+}
+
+body {
+  background: linear-gradient(135deg, #f6f8fa 0%, #e3f2fd 100%) !important;
+}
+
+.agendamentos-container {
+  max-width: 1100px;
+  margin: 13rem auto 2.5rem auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(74, 144, 226, 0.08), 0 1.5px 6px rgba(0,0,0,0.04);
+  min-height: 60vh;
+  box-sizing: border-box;
+}
+
+.agendamentos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.agendamentos-header h1 {
+  color: var(--azul-principal);
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.novo-agendamento-button {
+  background: linear-gradient(90deg, #4a90e2 60%, #357abd 100%);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.08);
+  transition: all 0.2s;
+}
+
+.novo-agendamento-button:hover {
+  background: linear-gradient(90deg, #357abd 60%, #4a90e2 100%);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(74, 144, 226, 0.13);
+}
+
+.agendamentos-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.agendamento-card {
+  background: var(--cinza-card);
+  border-radius: 12px;
+  padding: 1.7rem;
+  box-shadow: 0 2px 12px rgba(74, 144, 226, 0.07), 0 1px 4px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  border: 1px solid #f0f4fa;
+}
+
+.agendamento-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.agendamento-data,
+.agendamento-hora,
+.agendamento-procedimento,
+.agendamento-profissional {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+}
+
+.agendamento-data i,
+.agendamento-hora i,
+.agendamento-procedimento i,
+.agendamento-profissional i {
+  color: #4a90e2;
+  width: 20px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.35rem 1.1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.2px;
+  box-shadow: 0 1px 4px rgba(74, 144, 226, 0.06);
+}
+
+.status-badge.agendado {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-badge.realizado {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-badge.pendente {
+  color: #f39c12;
+  background: rgba(243, 156, 18, 0.13);
+}
+
+.status-badge.confirmada {
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.13);
+}
+
+.status-badge.concluída {
+  color: #3498db;
+  background: rgba(52, 152, 219, 0.13);
+}
+
+.status-badge.cancelada {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.13);
+}
+
+.cancelar-button {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #c62828;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.cancelar-button:hover {
+  background: #c62828;
+  color: white;
+}
+
+.sem-agendamentos {
+  text-align: center;
+  padding: 3.5rem 1rem;
+  background: var(--cinza-card);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(74, 144, 226, 0.07);
+  color: #888;
+  font-size: 1.15rem;
+  border: 1px solid #f0f4fa;
+}
+
+.sem-agendamentos i {
+  font-size: 3.2rem;
+  color: #b0b8c1;
+  margin-bottom: 1rem;
+}
+
+.sem-agendamentos p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modal-actions button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.modal-actions button[type="button"] {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.modal-actions .confirm-button {
+  background: #4a90e2;
+  border: none;
+  color: white;
+}
+
+.modal-actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading e Error */
+.loading,
+.error-message {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.loading i {
+  font-size: 2rem;
+  color: #4a90e2;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  color: #dc3545;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  background-color: #f8d7da;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #dc3545;
+  box-shadow: 0 2px 12px rgba(220, 53, 69, 0.08);
+  font-size: 1.5rem;
+  max-width: 600px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.error-message i {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  color: #dc3545;
+}
+
+@media (max-width: 1024px) {
+  .agendamentos-container {
+    margin-top: 10rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1rem 1rem 1rem;
+    min-height: 55vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .agendamentos-container {
+    margin: 7rem 0.5rem 1.5rem 0.5rem;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    min-height: 50vh;
+  }
+
+  .agendamentos-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .agendamentos-list {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .agendamentos-header h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .agendamentos-container {
+    margin: 5rem 0.2rem 1rem 0.2rem;
+    padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+    min-height: 45vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .error-message {
+    font-size: 1.1rem;
+    padding: 1.5rem 0.5rem;
+    max-width: 98vw;
+    min-height: 120px;
+  }
+  .error-message i {
+    font-size: 2.2rem;
+  }
+}
+
+/* Tema azul para paciente */
+.tema-paciente .agendamentos-header h1 {
+  color: #00b4f0 !important;
+}
+.tema-paciente .novo-agendamento-button {
+  background: linear-gradient(90deg, #00b4f0 60%, #0095cc 100%) !important;
+  color: #fff !important;
+}
+.tema-paciente .novo-agendamento-button:hover {
+  background: linear-gradient(90deg, #0095cc 60%, #00b4f0 100%) !important;
+}
+.tema-paciente .agendamento-info i,
+.tema-paciente .agendamento-data i,
+.tema-paciente .agendamento-hora i,
+.tema-paciente .agendamento-procedimento i,
+.tema-paciente .agendamento-profissional i {
+  color: #00b4f0 !important;
+}
+.tema-paciente .status-badge.agendado {
+  background: #e3f2fd !important;
+  color: #00b4f0 !important;
+}
+.tema-paciente .status-badge.concluída {
+  color: #00b4f0 !important;
+  background: rgba(0,180,240,0.13) !important;
+}
+
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.modal-content select:focus {
+  outline: none;
+  border-color: #00b4f0;
+  box-shadow: 0 0 0 2px rgba(0, 180, 240, 0.2);
+}
+
+.modal-content select option {
+  padding: 10px;
+}
+
+.modal-content select option:hover {
+  background-color: #f5f5f5;
+}
+
+.modal-content select optgroup {
+  font-weight: bold;
+  color: #666;
+  background-color: #f5f5f5;
+  padding: 8px;
+}
+
+.modal-content select optgroup option {
+  font-weight: normal;
+  color: #333;
+  padding: 8px 16px;
+}
+
+.modal-content select optgroup option:hover {
+  background-color: #e9e9e9;
+}
+
+.mensagem-erro-data {
+  color: #e74c3c;
+  font-size: 0.98rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.2rem;
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} 

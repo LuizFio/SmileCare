@@ -1,0 +1,234 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.logo figure {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo figure img {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+  margin-top: -90px;
+  margin-left: 0px;
+}
+
+/* Container principal da navegação */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: -140px;
+  flex-grow: 1;
+}
+
+/* Links de navegação */
+.nav-links {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: .5s;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+  color: #a7a5a5;
+}
+
+/* Estilos para o UserIcon */
+.user-section {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo apenas para o link de login */
+.user-section>a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: .5s;
+}
+
+.user-section>a:hover {
+  text-decoration: underline;
+  color: #a7a5a5;
+}
+
+.navbar-default .user-section>a {
+  color: rgb(0, 0, 0);
+}
+
+/* Estilos do menu dropdown do usuário */
+.user-section .user-menu {
+  background: white;
+  color: var(--text-color);
+}
+
+.user-section .menu-item {
+  color: var(--text-color);
+}
+
+.user-section .menu-item:hover {
+  background-color: var(--background-hover);
+}
+
+.user-icon-container {
+  margin-left: auto;
+}
+
+.user-icon-button {
+  color: inherit;
+  cursor: pointer;
+}
+
+.navbar-home .user-icon-button {
+  color: white;
+}
+
+.navbar-default .user-icon-button {
+  color: rgb(0, 0, 0);
+}
+
+.user-menu {
+  margin-top: 15px;
+}
+
+/* pra mudar a cor do link da nav */
+.navbar-default .nav-links a {
+  color: rgb(0, 0, 0);
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 220px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 4px;
+  overflow: visible;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: .5s;
+}
+
+.dropdown-content a:hover {
+  color: #abaaaa;
+}
+
+/* Sub-dropdown */
+.sub-dropdown {
+  position: relative;
+}
+
+.sub-dropdown-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sub-dropdown:hover .sub-dropdown-content {
+  display: block;
+}
+
+.sub-dropdown-content a {
+  display: block;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+  transition: .5s;
+  white-space: nowrap;
+}
+
+.sub-dropdown-content a:hover {
+  color: #abaaaa;
+}
+
+.sub-dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .logo figure img {
+    width: 200px;
+    margin-top: -60px;
+  }
+
+  .nav-links {
+    margin-top: -90px;
+    margin-right: 20px;
+  }
+
+  .nav-links a {
+    margin-left: 15px;
+    font-size: 14px;
+  }
+
+  .dropdown-content {
+    min-width: 180px;
+  }
+
+  .sub-dropdown-content {
+    min-width: 160px;
+  }
+}

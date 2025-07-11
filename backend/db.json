@@ -1,0 +1,119 @@
+{
+  "pacientes": {},
+  "profissionais": {
+    "PROFISSIONAL-HOLfb": {
+      "id": "PROFISSIONAL-HOLfb",
+      "nome": "Dr. João Silva",
+      "senha": "5bcf5566a831954c9e67840e49e25a9bbf6a82964b0e4a6922d7d8783d8d6efeQoWap2Dzu2atOmpxrWDHiw==c19498443a4fc087ab8cf76600d831fe4926c551d57ce51eb697151723a19342",
+      "email": "joao.ortodontista@clinica.com",
+      "fone": "(11) 9000-0001",
+      "especialidade": "Ortodontia",
+      "descricao": "Especialista em aparelhos ortodônticos e Invisalign",
+      "cro": "10001-SP"
+    },
+    "PROFISSIONAL-F2eo4": {
+      "id": "PROFISSIONAL-F2eo4",
+      "nome": "Dr. Mario Santos",
+      "senha": "40d4e02ee99c2511c02f3cdff38595a0470fd1fce0eeb7af9db9d0c9538ebb0bF8v3nOl7y5ddfe+4rtXtJw==8677b578d1f20f3243986975a8426586eebf85d7b4f8c1394b7cc76179f012a4",
+      "email": "mario.periodontista@clinica.com",
+      "fone": "(11) 9000-0002",
+      "especialidade": "Periodontia",
+      "descricao": "Especialista em tratamento gengival e suporte ósseo",
+      "cro": "10002-SP"
+    },
+    "PROFISSIONAL-HQ2JF": {
+      "id": "PROFISSIONAL-HQ2JF",
+      "nome": "Dr. Carlos Mendes",
+      "senha": "76163364637fffb1c4ef375f094040c24ba8d400a37cd8341bfba52525b2754cZxGUzndCqesmy0jByuGyXA==efc598cceb68bc861a876025ecc90b5f69631685a0ce579a12df540293649712",
+      "email": "carlos.cirurgiao@clinica.com",
+      "fone": "(11) 9000-0003",
+      "especialidade": "Cirurgia",
+      "descricao": "Especialista em cirurgias orais e extrações complexas",
+      "cro": "10003-SP"
+    },
+    "PROFISSIONAL-2gqZW": {
+      "id": "PROFISSIONAL-2gqZW",
+      "nome": "Dra. Ana Oliveira",
+      "senha": "99b79e250d3af719f80b1da49780aaec0929ffc0fc4249330b2a5c0526ad5e79TbXfmU28PvfF0/duXnH9CA==6dbd55d2b4fb99fe7de3c908ed0f1b5023f385ee00a85e481a3c0c9ab8eb4155",
+      "email": "ana.clinico@clinica.com",
+      "fone": "(11) 9000-0004",
+      "especialidade": "Clínica Geral",
+      "descricao": "Atendimento clínico geral e acompanhamento preventivo",
+      "cro": "10004-SP"
+    },
+    "PROFISSIONAL-Dku7S": {
+      "id": "PROFISSIONAL-Dku7S",
+      "nome": "Dra. Luana de Conto",
+      "senha": "296edbd06c1a979793e9fd700e8f70895146ee16b4dcbd455e97d5e7af36677cNtfN6y5SfVIalOw0fp365g==87d13a21047f4d6fd2359818e54683bba47bd98e147bb08dce467974d8ef7b14",
+      "email": "luana.clinico@clinica.com",
+      "fone": "(11) 9000-0005",
+      "especialidade": "Clínica Geral",
+      "descricao": "Cuidados gerais e avaliação de saúde bucal",
+      "cro": "10005-SP"
+    }
+  },
+  "procedimentos": {
+    "PROCEDIMENTO-jI6Rf": {
+      "id": "PROCEDIMENTO-jI6Rf",
+      "nome": "Aparelhos ortodônticos",
+      "descricao": "Instalação e manutenção de aparelhos fixos e móveis",
+      "idProfissionais": [
+        "PROFISSIONAL-HOLfb",
+        "PROFISSIONAL-F2eo4"
+      ],
+      "profissionais": []
+    },
+    "PROCEDIMENTO-JcIt_": {
+      "id": "PROCEDIMENTO-JcIt_",
+      "nome": "Invisalign",
+      "descricao": "Alinhadores transparentes para correção dentária",
+      "idProfissionais": [
+        "PROFISSIONAL-HOLfb",
+        "PROFISSIONAL-2gqZW"
+      ],
+      "profissionais": []
+    },
+    "PROCEDIMENTO-GtQgy": {
+      "id": "PROCEDIMENTO-GtQgy",
+      "nome": "Implantes",
+      "descricao": "Reposição de dentes com pinos de titânio",
+      "idProfissionais": [
+        "PROFISSIONAL-HQ2JF",
+        "PROFISSIONAL-F2eo4"
+      ],
+      "profissionais": []
+    },
+    "PROCEDIMENTO-4T9D3": {
+      "id": "PROCEDIMENTO-4T9D3",
+      "nome": "Próteses",
+      "descricao": "Confecção de próteses parciais e totais",
+      "idProfissionais": [
+        "PROFISSIONAL-HQ2JF",
+        "PROFISSIONAL-Dku7S"
+      ],
+      "profissionais": []
+    },
+    "PROCEDIMENTO-n3851": {
+      "id": "PROCEDIMENTO-n3851",
+      "nome": "Extrações",
+      "descricao": "Remoção de dentes comprometidos",
+      "idProfissionais": [
+        "PROFISSIONAL-HQ2JF",
+        "PROFISSIONAL-2gqZW",
+        "PROFISSIONAL-Dku7S"
+      ],
+      "profissionais": []
+    },
+    "PROCEDIMENTO-ewHd9": {
+      "id": "PROCEDIMENTO-ewHd9",
+      "nome": "Check-up clínico geral",
+      "descricao": "Avaliação clínica completa e preventiva",
+      "idProfissionais": [
+        "PROFISSIONAL-F2eo4",
+        "PROFISSIONAL-Dku7S"
+      ],
+      "profissionais": []
+    }
+  },
+  "agendamentos": {}
+}
